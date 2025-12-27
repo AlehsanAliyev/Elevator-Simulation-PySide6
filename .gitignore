@@ -1,6 +1,11 @@
-echo __pycache__/ > .gitignore
-echo .venv/ >> .gitignore
-echo *.pyc >> .gitignore
-echo *.exe >> .gitignore
-echo build/ >> .gitignore
-echo dist/ >> .gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+.env/
+.pytest_cache/
+.mypy_cache/
+build/
+dist/
+*.egg-info/

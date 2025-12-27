@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QWidget" name="MainWindow">
+  <property name="windowTitle">
+   <string>Elevator Simulation</string>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>980</width>
+    <height>640</height>
+   </size>
+  </property>
+  <layout class="QHBoxLayout" name="main_layout">
+   <item>
+    <widget class="QFrame" name="simulation_frame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <layout class="QVBoxLayout" name="simulation_layout">
+      <item>
+       <widget class="QLabel" name="simulation_label">
+        <property name="minimumSize">
+         <size>
+          <width>480</width>
+          <height>520</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(18, 30, 40); border: 1px solid rgb(60, 80, 90);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="controls_panel">
+     <layout class="QVBoxLayout" name="controls_layout">
+      <item>
+       <widget class="QGroupBox" name="setup_group">
+        <property name="title">
+         <string>Setup</string>
+        </property>
+        <layout class="QFormLayout" name="setup_layout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="floor_count_label">
+           <property name="text">
+            <string>Floors</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QSpinBox" name="floor_count_spin">
+           <property name="minimum">
+            <number>2</number>
+           </property>
+           <property name="maximum">
+            <number>30</number>
+           </property>
+           <property name="value">
+            <number>6</number>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="mode_label">
+           <property name="text">
+            <string>Mode</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="mode_combo">
+           <item>
+            <property name="text">
+             <string>FIFO</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Simple</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>SCAN</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="2" column="0" colspan="2">
+          <widget class="QPushButton" name="apply_floors_button">
+           <property name="text">
+            <string>Apply Floor Count</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="control_group">
+        <property name="title">
+         <string>Simulation Controls</string>
+        </property>
+        <layout class="QHBoxLayout" name="control_layout">
+         <item>
+          <widget class="QPushButton" name="start_pause_button">
+           <property name="text">
+            <string>Start</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="reset_button">
+           <property name="text">
+            <string>Reset</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="emergency_button">
+           <property name="text">
+            <string>Emergency Stop</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="door_group">
+        <property name="title">
+         <string>Door Controls</string>
+        </property>
+        <layout class="QHBoxLayout" name="door_layout">
+         <item>
+          <widget class="QPushButton" name="open_door_button">
+           <property name="text">
+            <string>Open</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="close_door_button">
+           <property name="text">
+            <string>Close</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="status_group">
+        <property name="title">
+         <string>Status</string>
+        </property>
+        <layout class="QFormLayout" name="status_layout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="current_floor_label">
+           <property name="text">
+            <string>Current Floor</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="current_floor_value">
+           <property name="text">
+            <string>-</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="direction_label">
+           <property name="text">
+            <string>Direction</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="direction_value">
+           <property name="text">
+            <string>-</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="door_label">
+           <property name="text">
+            <string>Door State</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="door_value">
+           <property name="text">
+            <string>-</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="next_stops_label">
+           <property name="text">
+            <string>Next Stops</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLabel" name="next_stops_value">
+           <property name="text">
+            <string>-</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="mode_value_label">
+           <property name="text">
+            <string>Mode</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLabel" name="mode_value">
+           <property name="text">
+            <string>-</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="requests_group">
+        <property name="title">
+         <string>Floor Requests</string>
+        </property>
+        <layout class="QVBoxLayout" name="requests_layout">
+         <item>
+          <widget class="QScrollArea" name="floor_scroll">
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="floor_button_container">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>240</width>
+              <height>200</height>
+             </rect>
+            </property>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="log_group">
+        <property name="title">
+         <string>Event Log</string>
+        </property>
+        <layout class="QVBoxLayout" name="log_layout">
+         <item>
+          <widget class="QPlainTextEdit" name="log_output">
+           <property name="minimumSize">
+            <size>
+             <width>320</width>
+             <height>160</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint">
+         <size>
+          <width>20</width>
+          <height>10</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

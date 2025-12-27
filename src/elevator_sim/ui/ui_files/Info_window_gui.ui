@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InfoDialogWindow</class>
+ <widget class="QDialog" name="InfoDialogWindow">
+  <property name="windowTitle">
+   <string>About Elevator Simulation</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="info_label">
+     <property name="text">
+      <string>This demo shows a responsive Qt UI with an embedded offscreen pygame simulation.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="OkButton">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>OkButton</sender>
+   <signal>accepted()</signal>
+   <receiver>InfoDialogWindow</receiver>
+   <slot>accept()</slot>
+  </connection>
+  <connection>
+   <sender>OkButton</sender>
+   <signal>rejected()</signal>
+   <receiver>InfoDialogWindow</receiver>
+   <slot>reject()</slot>
+  </connection>
+ </connections>
+</ui>
